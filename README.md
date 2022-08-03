@@ -23,6 +23,8 @@ Deploy a fully functioning AVD (session and remote apps) with FSlogix for profil
 
 ##Step 3: Set up storage account for FSLogix file share
 
+ref: https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-ad-ds-enable
+
 1. Create a storage account 
 2. Create a new file share called "avdfs"
 3. Go back to DC and create a new OU called Storage under Active Directory Users and Computers
@@ -42,10 +44,7 @@ Import-Module -Name AzFilesHybrid
 Install-Module Az
 
 # Login with an Azure AD credential that has either storage account owner or contributor Azure role assignment
-# If you are logging into an Azure environment other than Public (ex. AzureUSGovernment) you will need to specify that.
-# See https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-ps
-# for more information.
-Connect-AzAccount (login using azure ad global admin that has owner role along with ga)
+Connect-AzAccount (do not use DC admin credentials here user subscription contributor or owner that you use to log into azure portal)
 
 # Define parameters
 $SubscriptionId = "<your-subscription-id-here>"
@@ -83,6 +82,8 @@ $storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
 
 ## Step 4: Set up file share permissions in DC 
 
+ref: https://docs.microsoft.com/en-us/azure/virtual-desktop/fslogix-profile-container-configure-azure-files-active-directory?tabs=adds
+   
 1. Under Active Directory Users and Computers > Add new groups > FS Elevated Contributor (DC admin avdadmin@<domain>.onmicrosoft.com) and FS Contributor (AVDUsers group
    i.e. all users)
 2. After these new groups are synced to Azure AD got to the storage account > file share > IAM > Add roles > FS Contributor as Storage File Data SMB Share Contributor and
