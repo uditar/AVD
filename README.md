@@ -92,7 +92,7 @@ $storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
 ```powershell
 
 #mount file share on DC, get the access keys for storage account
-net use z: \\<<storage-account-name-here>>.file.core.windows.net\avdfs <key1> /user:Azure\<storage-account-name-here>
+net use z: \\<storage-account-name-here>.file.core.windows.net\avdfs <key1> /user:Azure\<storage-account-name-here>
 
 ```
 4. Configure NTFS permission by clicking on newly created drive properties > security > Advanced and add FS Contributor and FS Elevated Contributor with full control permissions.
