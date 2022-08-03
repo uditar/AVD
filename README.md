@@ -86,7 +86,7 @@ ref: https://docs.microsoft.com/en-us/azure/virtual-desktop/fslogix-profile-cont
    
 1. Under Active Directory Users and Computers > Add new groups > FS Elevated Contributor (DC admin avdadmin@<domain>.onmicrosoft.com) and FS Contributor (AVDUsers group
    i.e. all users)
-2. After these new groups are synced to Azure AD got to the storage account > file share > IAM > Add roles > FS Contributor as Storage File Data SMB Share Contributor and
+2. After these new groups are synced to Azure AD go to the azure storage account > file share > IAM > Add roles > FS Contributor as Storage File Data SMB Share Contributor and
    FS Elevated Contributor as Storage File Data SMB Share Elevated Contributor
 3. Log into DC using the avdadmin credential as it is part of Elevated Contributor group and is the only one that can create/mount share
 
