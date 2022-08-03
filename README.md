@@ -11,7 +11,7 @@ Deploy a fully functioning AVD (session and remote apps) with FSlogix for profil
 4. On the VM open Server Manager > Add roles and features > Server Roles > AD DS
 5. Promote to DC from notifications > Add new forest > Enter Domain name ex. <domain>.onmicrosoft.com > restart
 6. Install AD Connect > Configure Express 
-7. Open Active Directory Users and Computers > Create new user who will be the domain controller admin and keep password never expires - avdadmin@<domain>.onmicrosoft.com
+7. Open Active Directory Users and Computers > Create new user who will be the domain controller admin and keep password never expires - avdadmin@domain.onmicrosoft.com
    Double click on newly created user > Add member of > Domain Admin and Enterprise Admin 
 8. Install AD Connect with Express Settings and log in using Azure AD global admin from step 3.
 9. Create more users and a new container Groups > add a new Group called AVDUsers and add all users from step 8.
@@ -84,7 +84,7 @@ $storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
 
 ref: https://docs.microsoft.com/en-us/azure/virtual-desktop/fslogix-profile-container-configure-azure-files-active-directory?tabs=adds
    
-1. Under Active Directory Users and Computers > Add new groups > FS Elevated Contributor (DC admin avdadmin@<domain>.onmicrosoft.com) and FS Contributor (AVDUsers group
+1. Under Active Directory Users and Computers > Add new groups > FS Elevated Contributor (DC admin avdadmin@domain.onmicrosoft.com) and FS Contributor (AVDUsers group
    i.e. all users)
 2. After these new groups are synced to Azure AD go to the azure storage account > file share > IAM > Add roles > FS Contributor as Storage File Data SMB Share Contributor and
    FS Elevated Contributor as Storage File Data SMB Share Elevated Contributor
@@ -118,7 +118,7 @@ net use z: \\<storage-account-name-here>.file.core.windows.net\avdfs <key1> /use
 
 1. Go to DC VM on azure portal and navigate to the VNET it is in (AVDVnet). Go to DNS Servers and change the Setting from Default to Custom. Add the IP (private of the DC) as a server. (You may also have to add 8.8.8.8 to allow internet access or configure firewall settings to allow internet access if it's blocked in the event you see a VMExtensione Error while deploying as your VM needs access to the internet to download certain extensions)
 2. Look up AVD and create a host pool of type "Pooled" and load-balancing either Depth/Bread First
-3. Under Virtual Machines add new VMs and use the image saved from Step 5. Ensure that you enter the right credentials for DC admin avdadmin@<domain>.onmicrosoft.com and
+3. Under Virtual Machines add new VMs and use the image saved from Step 5. Ensure that you enter the right credentials for DC admin avdadmin@domain.onmicrosoft.com and
    choose the same vnet as that of the DC (AVDVnet)
 4. Create a new Workspace
 
