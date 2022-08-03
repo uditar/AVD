@@ -107,8 +107,8 @@ net use z: \\<storage-account-name-here>.file.core.windows.net\avdfs <key1> /use
 1. Create a new VM with Windows 10 multisession + M365 Apps
 2. Install a custom application something like 7Zip
 3. Install FSLogix Agent > Run the FSLogixAppsSetup
-4. Open Registry Editor > Local Machine key > FSLogix > Profile > Create a new DWord named Enabled with value 1* and create a Multi-string value named "VHDLocations" with
-   value "\\<storage-account-name>.file.core.windows.net\avdfs"
+4. Open Registry Editor > Local Machine key > FSLogix > Profile > Create a new DWord named Enabled with value 1 and create a Multi-string value named "VHDLocations" with
+   value "\\<storage-account-name>.file.core.windows.net\avdfs" (These commands enable Profile Container and configure the location of the share.)
 5. Generalize image by going to C: > Windows > System32 > Sysprep > run sysprep as admin and select "Generalize" and Shutdown options as "Shut Down"
 6. Once the VM shuts down go to Azure portal and stop the VM first to change status to Stopped and Deallocated.
 7. Click on Capture and save image as managed image for now if you don't have a gallery 
