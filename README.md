@@ -21,7 +21,7 @@ Deploy a fully functioning AVD (session and remote apps) with FSlogix for profil
 
 1. Add new groups like PoolUsers and RemoteAppUsers and assign some users that you created in DC and synced to AD previously
 
-##Step 3: Set up storage account for FSLogix file share
+## Step 3: Set up storage account for FSLogix file share
 
 ref: https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-ad-ds-enable
 
