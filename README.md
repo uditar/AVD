@@ -116,7 +116,7 @@ net use z: \\<storage-account-name-here>.file.core.windows.net\avdfs <key1> /use
    
 ## Step 6 : Create Host pool and Application Groups
 
-1. Go to DC on azure portal and navigate to the VNET it is in (AVDVnet). Go to DNS Servers and change the Setting from Default to Custom. Add the IP (private of the DC) as a server
+1. Go to DC VM on azure portal and navigate to the VNET it is in (AVDVnet). Go to DNS Servers and change the Setting from Default to Custom. Add the IP (private of the DC) as a server. (You may also have to add 8.8.8.8 to allow internet access or configure firewall settings to allow internet access if it's blocked in the event you see a VMExtensione Error while deploying as your VM needs access to the internet to download certain extensions)
 2. Look up AVD and create a host pool of type "Pooled" and load-balancing either Depth/Bread First
 3. Under Virtual Machines add new VMs and use the image saved from Step 5. Ensure that you enter the right credentials for DC admin avdadmin@<domain>.onmicrosoft.com and
    choose the same vnet as that of the DC (AVDVnet)
