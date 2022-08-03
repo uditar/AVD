@@ -133,4 +133,6 @@ Choose from https://docs.microsoft.com/en-us/azure/virtual-desktop/user-document
 1. Navigate to web client https://rdweb.wvd.microsoft.com/arm/webclient and log in using different users 
 2. You can navigate to Azure File share and check if different profiles were created for each user as well as sessions under application groups
 
-
+# Credits
+   https://www.youtube.com/watch?v=XhaCJ6JPM4Y&ab_channel=ITClouds9
+   
